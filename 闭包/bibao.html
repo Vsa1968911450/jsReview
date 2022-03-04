@@ -16,7 +16,8 @@
             }
         }
         // 意义 延长变量的生命周期 创建私有环境(定义域)
-        // js运行的时候会产生一个AO,active Object 存取遍历
+        // js运行的时候会产生一个AO,active Object 存取遍历  
+        // 桥梁
         let name = 'hei'
         function fn2(){
             let name = 'hong'
@@ -27,6 +28,30 @@
             fn3()
         }
         fn2()
+      //vue data为什么是个函数？ 是一个闭包的设计 有很多组件 每个组件都有一个data 每个组件有一个私有的定义域 不会产生变量污染  如果是obj  变量重复 会覆盖值
+      let makeCode= function(){
+          let num = 0
+          function changeBy(val){
+              num += val
+          }
+          return {
+              add:function(){
+                  changeBy(1)
+              },
+              reduce:function(){
+                  changeBy(-1)
+              },
+              val:function(){
+                  return num
+              }
+          }
+      }
+      let counter = makeCode()
+      let counters = makeCode()
+      alert(counter.val())
+      counter.add()
+      counter.add()
+      alert(counter.val())
     </script>
 </body>
 </html>

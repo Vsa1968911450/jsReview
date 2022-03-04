@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖和节流</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <div class="box"></div>
+    <script>
+        // 防抖
+        let teLinput = document.querySelector('input')
+        teLinput.addEventListener('input',antiShake(demo,2000))
+        function antiShake(fn,wait){
+            let timeOut = null
+            return args =>{
+                if(timeOut) clearTimeout(timeOut)
+                timeOut = setTimeout(fn,wait)
+            }
+        }
+        // 节流 一定时间内 只调用一次  提交表单  高频的监听事件
+        let box = document.querySelector(".box")
+        box.addEventListener("touchmove",(e)=>{
+            console.log('222')
+        })
+        function throttle(event,time){
+            let timer = null
+            return function(){
+                if(!timer){
+                    timer = setTimeout(()=>{
+                        event();
+                        timer = null;
+                    }, time)
+                }
+            }
+        }
+        function demo(){
+            console.log('1')
+        }
+    </script>
+</body>
+</html>
