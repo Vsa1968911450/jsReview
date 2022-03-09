@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    <h2>v-model原理</h2>
+    <input type="text" id="input">
+    <p id="input"></p>
+    <script>
+        let obj = {
+            inputNum:''
+        }
+        let inputs = document.querySelector('input')
+        Object.defineProperty(obj,'inputNum',{
+            set(val){
+               document.getElementById('input').innerText = val
+                console.log(val)
+            },
+            get(val){
+                val = inputs.innerHTML
+                console.log(val)
+            }
+        })  // vue2
+    </script>
+</body>
+</html>

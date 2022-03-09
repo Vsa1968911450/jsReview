@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+</head>
+<body>
+    <script>
+        // function fn(){}
+        // fn.prototype.name = '小明'
+        // fn.prototype.fn = function(){
+        //     console.log('12121')
+        // }
+        function Person(){
+
+        }
+        Person.prototype.name = '小明'
+        Object.prototype.age = 18
+        Person.prototype.getAge = function(){
+            console.log(this.age)
+        }
+        let person = new Person()
+        // person.age = 20
+        person.getAge()
+        console.log(person)
+    </script>
+</body>
+</html>

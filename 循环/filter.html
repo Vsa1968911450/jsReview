@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+</head>
+<body>
+    <script>
+        // filter 返回一个新数组  forEach没有返回值 必须遍历完不会提前退出   map 有返回值 返回一个数组
+        let  a = [1,2,3,4,5,6,77]
+        a.filter(item=>item>10)
+        console.log(a.filter(item=>item>10))
+        // 递归求和 1-100
+        function fn(num,nums){
+            num =  num + nums
+            if(nums + 1 > 100){
+                return num
+            }
+            return fn(num,nums+1)
+        }
+        fn(1,2)
+        let sum = fn(1,2)
+        console.log(sum)
+    </script>
+</body>
+</html>

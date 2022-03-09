@@ -17,7 +17,7 @@
     <input type="text">
     <div class="box"></div>
     <script>
-        // 防抖
+        // 防抖 防抖就是将多次操作变成一次 只允许一次操作
         let teLinput = document.querySelector('input')
         teLinput.addEventListener('input',antiShake(demo,2000))
         function antiShake(fn,wait){
@@ -29,9 +29,7 @@
         }
         // 节流 一定时间内 只调用一次  提交表单  高频的监听事件
         let box = document.querySelector(".box")
-        box.addEventListener("touchmove",(e)=>{
-            console.log('222')
-        })
+        box.addEventListener("touchmove",throttle(demo,2000))  // 移动端时间 touchmove
         function throttle(event,time){
             let timer = null
             return function(){
