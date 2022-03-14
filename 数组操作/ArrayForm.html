@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组操作</title>
+</head>
+<body>
+  <script>
+    //随机生成一个长度为10的数组  以10为单位有序排放在属于自己的数组内
+    function getNumber(min,max){
+      min = Math.ceil(min)
+      max = Math.floor(max)
+      return Math.floor(Math.random() * (max -min +1)) // 输出在最大值 和 最小值范围的随机数
+    }
+    let arr = Array.from({length:10},()=>{ return getNumber(0,99)})
+    console.log(arr)
+    arr = [...new Set(arr)]
+    console.log(arr)
+    arr =arr.sort((a,b)=>a-b)
+    console.log(arr)
+    const mapList = {}
+    arr.forEach(item=>{
+      const key = Math.floor(item / 10)
+      if(!mapList[key]){
+        mapList[key] = []
+      }
+      mapList[key].push(item)
+    })
+    let res = []
+    for(const key in mapList) {
+      res.push(mapList[key])
+    }
+    console.log(res)
+  </script>
+</body>
+</html>
