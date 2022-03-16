@@ -7,10 +7,33 @@
     <title>vue</title>
 </head>
 <body>
-    <h2>v-model原理</h2>
+    <!-- <h2>v-model原理</h2>
     <input type="text" id="input">
-    <p id="input"></p>
+    <p id="input"></p> -->
+    <div id="app">
+        <p>姓名:{{ name }}</p>
+        <p>年龄:{{ age }}</p>
+    <div>
+      <input type="text" v-model="name" />
+      <input type="text" v-model="age" />
+    </div>
+    </div>
+   
+    <script src="./vue.js"></script>
     <script>
+      const vm = new Vue({
+        el:'#app',
+        data:{
+          name:'wdy',
+          age:20,
+          info:{
+            a:1,
+            b:2
+          }
+        }
+      })
+    </script>
+    <!-- <script>
         let obj = {
             inputNum:''
         }
@@ -25,6 +48,6 @@
                 console.log(val)
             }
         })  // vue2
-    </script>
+    </script> -->
 </body>
 </html>
