@@ -84,17 +84,110 @@ vue性能
 
 vue3 新特性
 更快 
+
 1 虚拟dom重写 编译会有更多报错 增加了元素节点判断 比如子元素判断 是否有 有多少个 有没有key等之类的都有参数去判断
 2 优化slots 减少不必要的渲染
 3 静态树 静态属性的提升
 4 数据绑定proxy  兼容性变差了 ie11不兼容
+
 更小 
 1 通过tree shaking去优化核心库 代码打包会更小
+
 更容易维护
 1 ts+模块化  代码检测 错误检测
+
 更加友好
 1 运行编译器核心与平台无关 
+
 容易使用
 1 ts报错
 2 调试
 3 响应式更快
+
+
+
+vue项目优化 
+1 代码
+路由懒加载
+图片懒加载
+第三方插件按需引入
+v-if 和 v-show 使用
+v-for遍历不使用index 使用唯一的key 如果进行删除 index会变化要重新渲染
+
+2 webpack优化
+webpack对图片进行压缩
+提取公共代码  js css进行提取
+模板预编译
+字体文件压缩
+
+3 web
+gzip压缩
+浏览器缓存  避免重新加载数据
+cdn使用 
+
+
+
+vue模板编译
+ 将template转化为render函数的过程
+ 第一步 模板字符串转换成ast虚拟树
+ 第二步 对ast进行静态节点标记 用来渲染虚拟dom
+ 第三部 生成render函数（h函数）
+
+ vue.extends
+使用vue构造器 创建一个子类
+
+ <div id="mount-point"></div>
+// 创建构造器
+var Profile = Vue.extend({
+  template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
+  data: function () {
+    return {
+      firstName: 'Walter',
+      lastName: 'White',
+      alias: 'Heisenberg'
+    }
+  }
+})
+// 创建 Profile 实例，并挂载到一个元素上。
+new Profile().$mount('#mount-point')
+
+使用：从接口动态渲染组件 
+
+nextick
+nextick中的回调实在下次dom更新循环结束之后执行的延迟回调 修改数据之后立即使用这个方法 获取更新后的dom
+
+
+diff算法 最小量更新 key看是否是同一节点 key sel（同层比较） vue3 还加了 判断  v-for要有key 没有key没次都是暴力删除再添加新的 消耗性能
+新前旧前 新后旧后  新后旧前 新前旧后 没有就循环 有了 就++
+
+组件调用顺序 先父后子 组件渲染完成是先子后父
+组建销毁操作 先父后子 销毁完成的顺序是先子后父
+
+
+加载渲染过程
+父 beforecreate -> 父 created -> 父 beforeMount > 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 Mounted  -> 父 mounted
+
+自组件更新
+父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+
+销毁过程 
+父 beforedestroy -> 子 beforedestroy -> 子 detroyed -> 父 destroyed
+
+自定义指令 原理是什么
+指令的本质是装饰器 给html添加自定义功能
+
+自定义指令有五个生命周期
+bind 只调用一次 指令第一次绑定元素时调用 这个钩子函数可以定义绑定时执行一次的初始化动作
+inserted 被绑元素插入父节点
+update 被绑元素锁在模板更新时调用
+compenentUpdated 模板完成一次更新周期时调用
+unbind   解除绑定
+
+定义自定义指令
+vue.directive(指令名,{bind:function(el,binding){}})
+
+原理 
+生成ast语法树 添加directives属性
+通过genDirectives生成指令代码
+patch前将指令的钩子提取到回调函数中，在patch里面写下相应的钩子
+知悉对应指令调用该语法
