@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //setTimeout：大家肯定都用过了，它的第一个参数是一个方法，传入的这个方法内部的this会被改写指向window
+        window.id = 0;
+        // 声明一个函数fn
+        const fn = {
+        id: 1,
+        say: function() {
+            console.log('id:', this.id);
+            console.log(this) // fn
+        },
+        sayArrow: () => {
+            console.log('id:', this.id);
+            console.log(this) // window
+        },
+        say1: function() {
+            setTimeout(function() {
+            console.log('id:', this.id);
+            console.log(this)
+            }, 1000);
+        },
+        say2: function() {
+            let that = this;
+            setTimeout(function() {
+            console.log('id:', that.id);
+            }, 1000);
+        },
+        say3: function() {
+            setTimeout(() => {
+            console.log('id:', this.id);
+            console.log(this)
+            }, 1000);
+        },
+        say4: () => {
+            setTimeout(() => {
+            console.log('id:', this.id);
+            }, 1000);
+        },
+        say5: () => {
+            setTimeout(function() {
+            console.log('id:', this.id);
+            }, 1000);
+        },
+        };
+
+
+        fn.say();
+        fn.sayArrow();
+        setTimeout(fn.say, 1000);
+        setTimeout(fn.sayArrow, 1000);
+        setTimeout(() => fn.say(), 1000);  // 被箭头函数包裹this就不会收到影响
+        setTimeout(() => fn.sayArrow(), 1000);
+        fn.say1();
+        fn.say2();
+        fn.say3();
+        fn.say4();
+        fn.say5();
+    // 1 0 0 0 1 0
+    </script>
+</body>
+</html>

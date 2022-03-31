@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 10rem;
+            height: 10rem;
+            border: 1px solid orange;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            position: relative
+        }
+        #box:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            /* // css像素; */
+            height: 1px; 
+        }
+        @media screen and (-webkit-min-device-pixel-ratio:2) {
+            #box:before{
+                transform: scale(0.5);
+            }
+        }
+        @media screen and (-webkit-min-device-pixel-ratio:2) {
+            #box:before{
+                transform: scale(0.3333);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        window.onload = function(){
+            let dpr = window.devicePixelRatio
+            let scale = 1/dpr
+            let metaDom = document.querySelector('meta[name="viewport"]')
+            metaDom.setAttribute('content',`width=device-width,initial-scale=${scale},use-scalable=no`)
+        }
+    </script>
+</body>
+</html>

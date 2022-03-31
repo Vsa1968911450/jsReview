@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [0,1,1,1,1,2,3,4,5,5,5,6,7,8,6,4,'true','true',10,10]
+        // new Set
+        let arrSet = new Set(arr)
+        // splce
+        function delSameSplice(arr){
+            for(let i = 0;i<arr.length ;i++){
+                for(let j = i + 1;j<arr.length ;j++){
+                    if(arr[i] == arr[j]){
+                        arr.splice(j,1);
+                        j--
+                    }
+                }
+            }
+            console.log(arr)
+            return arr
+        }
+        delSameSplice(arr)
+        // indexOf
+        function delSameIndexOf(arr){ // 默认传的就是数组 不判断类型了
+            let newArr = []
+            for(let i = 0;i<arr.length ;i++){
+                if(newArr.indexOf(arr[i]) === -1){  // 判断是否已经有了
+                    newArr.push(arr[i])
+                }
+            }
+            console.log(newArr)
+            return newArr
+        }
+        delSameIndexOf(arr)
+        // includes类似于indexOf
+        function delSameincludes(arr){ // 默认传的就是数组 不判断类型了
+            let newArr = []
+            for(let i = 0;i<arr.length ;i++){
+                if(!newArr.includes(arr[i])){  // 判断是否已经有了arr
+                    newArr.push(arr[i])
+                }
+            }
+            console.log(newArr)
+            return newArr
+        }
+        delSameincludes(arr)
+        // hasOwnProperty
+        function delSamehasOwnProperty(arr){
+            let newArr = []
+            for(let i = 0;i<arr.length ;i++){
+                if(!newArr.hasOwnProperty(arr[i])){  // 判断是否已经有了arr
+                    newArr.push(arr[i])
+                }
+            }
+            console.log(newArr)
+        }
+        delSamehasOwnProperty(arr)
+        //filter
+        function delSameFilter(arr){
+            let newArr = arr.filter((item,index,arr)=>{
+                return arr.indexOf(item,0) === index // indexOf第一个参数是指是否相同的数字 第二个参数 从第几项开始找
+            })
+            console.log(newArr)
+            return newArr
+        }
+        delSameFilter(arr)
+    </script>
+</body>
+</html>
