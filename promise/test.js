@@ -1,5 +1,5 @@
 // index文件原生promise promise.js进行 自定义Promise test文件进行测试
-const Promise = require('./promise')
+const Promise = require('./getpromise')
  new Promise((resolve,reject)=>{
   //  console.log('开始了123')
   //  throw new Error('1212')

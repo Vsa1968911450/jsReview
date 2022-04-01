@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+// function Foo(){
+//     getName = function(){
+//         alert(1)
+//     }
+//     return this
+// }
+// Foo.getName = function(){alert(2)}
+// Foo.prototype.getName = function(){alert(3)}
+// var getName = function(){alert(4)}
+// function getName(){alert(5)}
+
+// 函数提升和变量提升
+function Foo(){
+    getName = function(){alert(1)}
+    console.log(this) // this指向window 调用方法就会改变window下面的getName
+    return this
+}
+var getName;
+function getName(){alert(5)}  // 一旦变量名称和函数名称冲突有限保留函数名
+// 上面是提升的代码
+Foo.getName = function(){alert(2)}
+Foo.prototype.getName = function(){alert(3)}
+var getName = function(){alert(4)} // 对于getName重新赋值  执行完foo（）函数会对getName重新赋值
+
+
+Foo.getName() //2
+getName() // 4
+Foo().getName() //1
+getName() // 1
+new Foo.getName() //2 new (foo.getName())  new function(){alter(2)} 输出2
+new Foo().getName() //3   （new Foo（））.getName 会通过作用域链去往上找 Foo.prototype.getName
+new new Foo().getName() //3
+    </script>
+</body>
+</html>
