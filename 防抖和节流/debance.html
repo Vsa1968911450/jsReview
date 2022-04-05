@@ -18,13 +18,22 @@
     <div class="box"></div>
     <script>
         // 防抖 防抖就是将多次操作变成一次 只允许一次操作
+        // let teLinput = document.querySelector('input')
+        // teLinput.addEventListener('input',antiShake(demo,2000))
+        // function antiShake(fn,wait){
+        //     let timeOut = null
+        //     return args =>{
+        //         if(timeOut) clearTimeout(timeOut)
+        //         timeOut = setTimeout(fn,wait)
+        //     }
+        // }
         let teLinput = document.querySelector('input')
-        teLinput.addEventListener('input',antiShake(demo,2000))
-        function antiShake(fn,wait){
-            let timeOut = null
-            return args =>{
-                if(timeOut) clearTimeout(timeOut)
-                timeOut = setTimeout(fn,wait)
+        teLinput.addEventListener('input',debance(demo,2000))
+        function debance(fn,wait){
+            let timeout = null
+            return function(){
+                if(timeout) clearTimeout(timeout)
+                timeout = setTimeout(fn,wait)
             }
         }
         // 节流 一定时间内 只调用一次  提交表单  高频的监听事件

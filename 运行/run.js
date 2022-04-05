@@ -6,9 +6,9 @@
 
 // 宏任务 计时器 ajax 读取文件
 // 微任务 Promise.then
-// 1同步
-// 2nexttick
-// 3微任务
+// 1 同步
+// 2 nexttick
+// 3 微任务
 // 4 宏任务
 // 5 setimmediate
 
