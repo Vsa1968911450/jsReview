@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue</title>
+</head>
+<body>
+    <!-- <h2>v-model原理</h2>
+    <input type="text" id="input">
+    <p id="input"></p> -->
+    <div id="app">
+        <p>姓名:{{ name }}</p>
+        <p>年龄:{{ age }}</p>
+    <div>
+      <input type="text" v-model="name" />
+      <input type="text" v-model="age" />
+    </div>
+    </div>
+   
+    <script src="./vue.js"></script>
+    <script>
+      const vm = new Vue({
+        el:'#app',
+        data:{
+          name:'wdy1212',
+          age:20,
+          info:{
+            a:1,
+            b:2
+          }
+        }
+      })
+    </script>
+    <script>
+        let obj = {
+            name :'wdy',
+            age:'10'
+        }
+        const handler = {
+        get(target,key){
+            return target[key]
+        },
+        set(target,key,value){
+            if(target[key] !== value){
+                target[key] = value
+            }
+            return true
+        }
+    }
+    this.data = new Proxy(this.data,handler)
+        // let input = document.querySelector('input')
+        // Object.defineProperty(obj,'name',{
+        //     get(){
+        //         console.log(input.innerHTML)
+        //     },
+        //     set(val){
+        //         console.log(val)
+        //         input.innerText = val
+        //     }
+        // })
+        // let input = document.querySelector('input')
+        // Object.defineProperty(obj,'name',{
+        //     get(){
+        //         console.log(input.innerText)
+        //     },
+        //     set(val){
+        //         input.innerText = val
+        //     }
+        // })
+        // Object.defineProperty(obj,'age',{
+        //     get(){
+        //         console.log(input.innerText)
+        //     },
+        //     set(val){
+        //         input.innerText = val
+        //     }
+        // })
+    </script>
+</body>
+</html>

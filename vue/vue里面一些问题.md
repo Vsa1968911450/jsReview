@@ -180,7 +180,7 @@ diff算法 最小量更新 key看是否是同一节点 key sel（同层比较）
 bind 只调用一次 指令第一次绑定元素时调用 这个钩子函数可以定义绑定时执行一次的初始化动作
 inserted 被绑元素插入父节点
 update 被绑元素锁在模板更新时调用
-compenentUpdated 模板完成一次更新周期时调用
+componentUpdated 模板完成一次更新周期时调用
 unbind   解除绑定
 
 定义自定义指令
@@ -191,3 +191,14 @@ vue.directive(指令名,{bind:function(el,binding){}})
 通过genDirectives生成指令代码
 patch前将指令的钩子提取到回调函数中，在patch里面写下相应的钩子
 知悉对应指令调用该语法
+
+
+
+computed 和 watch
+watch     是监听里面数据发生变化才响应 一对多 可以不用return   immediate第一次加载
+computed  必须return 是计算某一个属性的变化 如果一个值改变了 才会去返回  多对一
+
+
+computed和methods
+computed 有缓存 多次调用时计算属性只会调用一次
+methods  没有缓存 调用方法几次就执行几次

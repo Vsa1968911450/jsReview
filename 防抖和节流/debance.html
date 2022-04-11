@@ -39,14 +39,25 @@
         // 节流 一定时间内 只调用一次  提交表单  高频的监听事件
         let box = document.querySelector(".box")
         box.addEventListener("touchmove",throttle(demo,2000))  // 移动端时间 touchmove
-        function throttle(event,time){
+        // function throttle(event,time){
+        //     let timer = null
+        //     return function(){
+        //         if(!timer){
+        //             timer = setTimeout(()=>{
+        //                 event();
+        //                 timer = null;
+        //             }, time)
+        //         }
+        //     }
+        // }
+        function throttle(fn,time){
             let timer = null
             return function(){
                 if(!timer){
                     timer = setTimeout(()=>{
-                        event();
-                        timer = null;
-                    }, time)
+                        fn(),
+                        timer = null
+                    },time)
                 }
             }
         }
