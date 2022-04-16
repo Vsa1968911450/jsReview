@@ -10,5 +10,5 @@ console.log(arr.constructor.toString())
 // 2 Object.prototype.toString.call(arr) obj的原型
 // 3 Array.prototype.isPrototypeOf(arr) isprotoOF
 // 4 arr.constructor.toString()
-let arrs = [1,[2,3],[4,6]]
-console.log(arr.join(',').split(','))
+// let arrs = [1,[2,3],[4,6]]
+// console.log(arr.join(',').split(','))

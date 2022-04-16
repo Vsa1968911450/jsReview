@@ -23,3 +23,13 @@ function swap(arr,i,j){
 }
 let arr = [2,1,9,4,7,10,0]
 BubbleSort(arr)
+
+
+// function BubbleSort(arr){
+//     let length = arr.length - 1
+//     for(let j = length;j>0;j--){
+//         for(let i = 0;i<j;i++){
+
+//         }
+//     }
+// }

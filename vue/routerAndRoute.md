@@ -14,7 +14,7 @@ router.push({ path: 'register', query: { plan: 'private' }})
 path:'name'和path:'/name'的区别
 加/ 会被当做根目录 否则当前路径会被嵌套在之前的路径中
 
-跳转方法还有 go reloace
+跳转方法还有 go replace
 this.$router.go(-1) 回到上一级 histry.back()
 replace是替换当前页面 不会像history添加新纪录
 

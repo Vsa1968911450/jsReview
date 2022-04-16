@@ -136,7 +136,7 @@ vue模板编译
  vue.extends
 使用vue构造器 创建一个子类
 
- <div id="mount-point"></div>
+<div id="mount-point"></div>
 // 创建构造器
 var Profile = Vue.extend({
   template: '<p>{{firstName}} {{lastName}} aka {{alias}}</p>',
@@ -202,3 +202,15 @@ computed  必须return 是计算某一个属性的变化 如果一个值改变�
 computed和methods
 computed 有缓存 多次调用时计算属性只会调用一次
 methods  没有缓存 调用方法几次就执行几次
+
+
+created 和mounted
+created 在模板渲染成html前调用
+mounted 渲染成html时候调用
+
+
+eventBus 和 vuex
+eventBus适合少量数据 数据不同步
+vuex 数据量大 数据同步
+
+
