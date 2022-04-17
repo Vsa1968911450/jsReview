@@ -1,6 +1,6 @@
 let arr = [1,2,3]
 console.log(Object.prototype.toString.call(arr))
-
+debugger
 console.log(Array.prototype.isPrototypeOf(arr))
 console.log(arr.constructor.toString())
 

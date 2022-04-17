@@ -1,2 +1,7 @@
 王单宇 前端 vue 2年 使用技术栈 vue 框架 vant el-ui ant design vuetify等 
 我有良好的沟通能力 发现了问题 可以进行有效沟通 及时的解决问题
+
+项目难点
+1 打包后浏览器缓存   webpack打包的时候修改chunkname   nginx设置缓存清理 浏览器清除缓存
+2 请求cdn服务器挂了的处理
+3 
