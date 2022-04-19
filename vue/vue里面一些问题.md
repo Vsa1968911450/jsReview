@@ -134,7 +134,7 @@ vue模板编译
  第三部 生成render函数（h函数）
 
  vue.extends
-使用vue构造器 创建一个子类
+ 使用vue构造器 创建一个子类
 
 <div id="mount-point"></div>
 // 创建构造器
@@ -212,5 +212,20 @@ mounted 渲染成html时候调用
 eventBus 和 vuex
 eventBus适合少量数据 数据不同步
 vuex 数据量大 数据同步
+
+生命周期
+beforecreate  创建vue示例之前的钩子函数
+created 实例创建完成之后的钩子函数
+beforemount 开始挂载编译
+mounted 页面加载完成 
+beforeupdate 试试监控数据变化
+updated 页面和data保持同步
+beforeDestory vue实例方法都还可以使用 马上进入销毁
+destored  组件销毁 方法不可用
+
+nexttick
+类似于一个settimeout为0 判断promise是否存在 如果存在就是微任务
+
+数据更新只会调用一次
 
 

@@ -12,3 +12,9 @@ console.log(arr.constructor.toString())
 // 4 arr.constructor.toString()
 // let arrs = [1,[2,3],[4,6]]
 // console.log(arr.join(',').split(','))
+// 数组 for forEach map for in for of
+//遍历对象 
+// for in 
+// object.keys()
+// object.getownpropertyNames()
+// relect.ownkeys()
