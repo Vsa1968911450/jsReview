@@ -12,3 +12,18 @@
 3 换个环境 
 
 import link
+
+
+async 有没有await  没有await就是普通函数
+同步  1- num 0 
+微任务
+宏任务
+
+
+箭头函数 和 普通函数
+箭头函数没有构造函数 不能new 没有原型
+箭头函数this一开始就指定了方向 不能使用 call apply bind去修改
+
+
+
+选择兄弟选择器 js                              
