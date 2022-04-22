@@ -8,8 +8,8 @@
 
 离职原因 
 1 学习
-2 休息一段时间 
-3 换个环境 
+2 休息一段时间
+3 换个环境
 
 import link
 
@@ -26,4 +26,6 @@ async 有没有await  没有await就是普通函数
 
 
 
-选择兄弟选择器 js                              
+选择兄弟选择器 js               
+
+nextsibling
