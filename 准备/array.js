@@ -18,3 +18,18 @@ console.log(arr.constructor.toString())
 // object.keys()
 // object.getownpropertyNames()
 // relect.ownkeys()
+
+
+// 类数组 转成 数组 
+// 1 Array.from
+// 2 扩展运算符 浅拷贝
+// 3 数组的slice方法 返回新的数组 不改变原数组
+Array.prototype.myslice = function(start,end){
+    let res = new Array()
+    start = start || 0
+    end = end || this.length
+    for(i=start;i<end;i++){
+        res.push(this[i])
+    }
+    return res // 返回一个数组
+}
