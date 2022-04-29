@@ -6,7 +6,7 @@
 2 请求cdn服务器挂了的处理
 
 
-离职原因 
+离职原因
 1 学习
 2 休息一段时间
 3 换个环境
@@ -29,3 +29,12 @@ async 有没有await  没有await就是普通函数
 选择兄弟选择器 js               
 
 nextsibling
+
+
+service worker pwa
+
+
+eventloop 事件循环
+
+z-index 比较  大的在小的下面
+比较父元素 父元素的z-index去比较

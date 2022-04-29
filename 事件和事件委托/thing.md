@@ -18,7 +18,7 @@
 或者 event.stopPropagation()
 
 
-addenentListener（event, function, useCapture）
+addeventListener（event, function, useCapture）
 
 event 定义事件
 function 方法
