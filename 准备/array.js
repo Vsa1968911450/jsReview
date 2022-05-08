@@ -20,6 +20,11 @@ console.log(arr.constructor.toString())
 // relect.ownkeys()
 
 
+
+//Set 对象类似于数组，但成员的值唯一
+//JSON 和 Map类似，它们的相同点：都是以键值对 key, value 的方式存储数据。但是Map的 key 不仅可以是字符串，还可以是对象、数组。JSON的 key 和 value 只支持String(也可以存数值,但是数值存进去,取出来还是String)
+
+
 // 类数组 转成 数组 
 // 1 Array.from
 // 2 扩展运算符 浅拷贝
