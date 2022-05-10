@@ -125,3 +125,7 @@ if-None_Match  对应 ETag
 域名到服务器  dns解析 也是有缓存的 如果之前解析过会在本地有缓存  少用域名资源 资源都放到同一服务器上  项目中往往会把不同资源放到不同服务器上（）
 先看浏览器 再看本地host 再看dns解析器缓存 再看本地dns服务器
 
+
+cookie sessionstorage localstorage
+session 旨在当前会话下有效 刷新也有效 同时打开无效  只能存储字符串
+cookie生成的时候就有一个默认的生命时间 默认关闭浏览器失效

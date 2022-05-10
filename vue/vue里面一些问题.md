@@ -91,7 +91,10 @@ vue3 新特性
 4 数据绑定proxy  兼容性变差了 ie11不兼容
 
 更小 
-1 通过tree shaking去优化核心库 代码打包会更小
+1 通过tree shaking去优化核心库 代码打包会更小  emodule导入
+从入口模块触发找到他所有读取的变量 无关代码一律抛弃 
+安装Rollup：yarn add rollup --dev
+运行：yarn rollup ./src/index.js --format iife --file dist/bundle.js
 
 更容易维护
 1 ts+模块化  代码检测 错误检测

@@ -38,3 +38,18 @@ Array.prototype.myslice = function(start,end){
     }
     return res // 返回一个数组
 }
+
+// 修改数组的操作
+// pop()  返回删除元素的值
+// push() 添加到尾部
+// reverse() 反转
+// shift() 删除第一个元素
+// unshift() 开头添加一个元素
+// sort() 排序
+// splice() 截取字符串 返回截取的数组
+
+// 不修改
+// concat() 数组连接
+// join()
+// slice() 返回新数组
+// JSON.parse() 深拷贝
